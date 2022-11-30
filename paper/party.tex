@@ -1,0 +1,556 @@
+%\documentclass[varwidth]{standalone}
+\documentclass[10pt]{amsart}
+\usepackage{amscd,amsxtra,color,amsthm}
+
+\usepackage[all]{xy}
+\usepackage{etex}
+\usepackage{pictex}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[all]{xy}
+\usepackage{etex}
+\usepackage{pictex}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\usepackage{comment}
+
+\textheight=9in \textwidth=6.2in \topmargin=0in
+\oddsidemargin=.15in \evensidemargin=.15in
+
+\begin{document}
+\parskip10pt
+\parindent12pt
+\baselineskip16pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\G{\widetilde{G}}
+\def\B{\widetilde{B}}
+\def\T{\widetilde{T}}
+\def\C{\mathbb{C}}
+\def\A{\mathbb{A}}
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+\def\C{\mathbb{C}}
+\def\F{\mathbb{F}}
+\def\I{\mathbb{I}}
+\def\H{\mathcal{H}}
+\def\e{\varepsilon}
+\def\s{\underline s}
+\def\z{\zeta }
+\def\vp{\varpi }
+\def\O{\mathcal O}
+\def\v{\upsilon }
+\def\U{\Upsilon }
+\def\p{\wp }
+\def\p{\mathfrak{p}}
+\def\B{\mathfrak{B}}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\bfloor}[1]{\Bigg \lfloor #1 \Bigg \rfloor}
+\newcommand{\bparen}[1]{\Bigg \lparen #1 \Bigg \rparen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Acquaintance Graph Party Problem}
+
+\author{Brayan Mauricio-Gonzalez}
+
+\begin{abstract}
+    In this paper, I present a new, short solution to a problem that deals with the 
+    minimum number of empty and full triangles in a graph. Furthermore, I demonstrate a related 
+    result that deals with a minimum bound for the number of full triangles in a graph.
+\end{abstract}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Introduction (Definitions)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+Before we begin discussing the acquaintance graph party problem, let's introduce some 
+preliminary definitions and corresponding examples.
+
+\noindent {\bf Definition.} \emph{The \textbf{floor function} is a function that gives us the 
+greatest integer that is less than or equal to a real number $x$, denoted $floor(x)$ or 
+$\lfloor x \rfloor$.}
+
+\noindent {\bf Definition.} \emph{The number of ways to choose $k$ objects from a set of 
+$n$ objects is denoted as $\binom{n}{k}$ and is read as ``n choose k''. The formula for 
+\textbf{n choose k} is $$ \binom{n}{k} = \frac{n!}{ k!(n - k)! }$$}
+
+% \noindent {\bf Definition.} \emph{Let's suppose that $X$ is a set. We say $y$ is a 
+% \textbf{sharp} lower bound for $X$ if $y \le x$ for all $x \in X$ and there exists 
+% an $x_0 \in X$ such that $y = x_0$.}
+
+\noindent {\bf Definition.} \emph{A \textbf{graph} $G$ consists of a vertex set $V(G)$ and an edge
+set $E(G)$, where each edge in $E(G)$ is a 2-element subset of $V(G)$.}
+
+\noindent {\bf Definition.} \emph{Two vertices in a graph are \textbf{adjacent} if they are 
+connected by an edge.}
+
+\noindent {\bf Definition.} \emph{The \textbf{degree} of a vertex in a graph is the number of vertices 
+adjacent to that vertex.}
+% \noindent {\bf Definition.} \emph{The \textbf{degree} of a vertex in a graph is the number of edges 
+% that are incident to that vertex.}
+
+\noindent {\bf Definition.} \emph{A \textbf{bipartite} graph (or bigraph) is a graph where $V$ can be partitioned 
+into two disjoint sets such that no two vertices within the same set are adjacent.}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=.4]{../figures/bipartite_graph.pdf}
+    \caption{An example of a bipartite graph.}
+\end{figure}
+
+\noindent {\bf Definition.} \emph{A \textbf{complete bipartite} graph is a bipartite graph where every 
+vertex in one set is adjacent to every vertex in the other set.}
+
+\noindent {\bf Definition.} \emph{A \textbf{regular} graph is a graph where each vertex has the same 
+degree. A graph is called K-regular if the degree of each vertex in the graph is K.}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=.4]{../figures/regular_graph.pdf}
+    \caption{An example of a 3-regular graph.}
+\end{figure}
+
+% definition of a subgraph?
+
+% \noindent {\bf Definition.} \emph{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Introduction (Problem)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lower Bound For Empty and Full Triangles}
+
+In an article of \emph{The American Mathematical Monthly} (REFERENCE), A. W. Goodman presents the 
+following problem.
+
+A \textbf{party} yields a graph $G$ where people are represented as vertices and two vertices are 
+adjacent if those two people know eachother, i.e. are acquaintances.
+A \textbf{full triangle} is a subset of three people who all know each other. In other words, three 
+adjacent vertices.
+An \textbf{empty triangle} is a subset of three people who are all strangers. In other words, three
+non-adjacent vertices. Goodman proved the following theorem.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Theorem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem} \
+    Let $E$ and $F$ be the number of empty and full triangles respectively. Then in every graph 
+    with $p$ vertices
+    % $$ E + F \geq \binom{p}{3} - \bfloor{ \frac{p}{2} \bfloor{ \bparen{ \frac{p-1}{2} }^2 } } $$
+    \begin{equation}
+        E + F \geq \binom{p}{3} - \bfloor{ \frac{p}{2} \bfloor{ \bparen{ \frac{p-1}{2} }^2 } } \label{eq:theorem1}
+    \end{equation}
+    and this lower bound is sharp for each positive integer $p$.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Proof 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof} \
+    Let $P$ be the number of partial triangles in $G$, meaning the number of triangles containing 
+    exactly one or two edges. It's clear that
+    \begin{equation}
+        E + F + P = \binom{p}{3} \label{eq:total_triangles}.
+    \end{equation}
+
+    Let $d_i$ be the degree of a vertex $v_i$, in other words, the number of people acquainted with 
+    the $i^{th}$ person. For each vertex $v_i$, picking one of their $d_i$ acquaintances and one of 
+    their $p - 1 - d_i$ nonacquaintances produces a partial triangle. Thus, each $v_i$ produces 
+    $d_i(p - 1 - d_i)$ partial triangles.
+
+    Furthermore, we note that every partial triangle is counted twice in this manner. To show this
+    is true, let vertex $a$, $b$, and $c$ represent $v_i$, one of their acquaintances, and one of 
+    their nonacquaintances respectively. Producing a partial triangle from $v_i$ yields two cases.
+
+    \pagebreak
+
+    \noindent Case 1: $b$ and $c$ are not acquainted.
+    Then this partial triangle is counted when $v_i$ is $a$ and $v_i$ is $b$. % add more ?
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=.6]{../figures/partial_case_1.pdf}
+        \caption{A visualization of Case 1.}
+    \end{figure}
+
+    \noindent Case 2: $b$ and $c$ are acquainted.
+    Then this partial triangle is counted when $v_i$ is $a$ and $v_i$ is $c$.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=.6]{../figures/partial_case_2.pdf}
+        \caption{A visualization of Case 2.}
+    \end{figure}
+    In both cases, the partial triangle is counted twice, which follows for every partial triangle.
+    Consequently,
+    \begin{equation}
+        P = \frac{1}{2} \sum^{p}_{i=1}{d_i(p - 1 - d_i)} \label{eq:partial_triangles}.
+    \end{equation}
+
+    Looking back at Equation (\ref{eq:total_triangles}), we can minimize $E + F$ by maximizing $P$.
+    To maximize $P$, we must maximize the sum in Equation (\ref{eq:partial_triangles}). We can view 
+    each term of the sum as a quadratic function of $d_i$. After finding the derivative of the 
+    equation it's clear that we attain our maximum when $d_i = \frac{p - 1}{2}$. 
+    
+    However, this is a contradiction when $p$ is even since $d_i$ is an integer.
+    Thus, if $p$ is odd, we attain the maximum value of $\frac{(p - 1)^2}{4}$ for each term when 
+    $d_i = \frac{p - 1}{2}$. If $p$ is even, we attain the maximum possible value of 
+    $\frac{p(p - 2)}{4}$ for each term when $d_i = \frac{p}{2}$ or $d_i = \frac{p - 2}{2}$.
+    In either case, we can express the maximum value as
+    $$ \bfloor{ \bparen{ \frac{p - 1}{2} }^2 }, $$
+    and so
+    \begin{equation}
+        P \leq \frac{1}{2} \sum^{p}_{i=1}{ \bfloor{ \bparen{ \frac{p - 1}{2} }^2 } } 
+            = \frac{p}{2} \bfloor{ \bparen{ \frac{p - 1}{2} }^2 }. \label{eq:partial_max}
+    \end{equation}
+    But since $P$ is an integer, we can strengthen this to read
+    \begin{equation}
+        P \leq \bfloor{\frac{p}{2} \bfloor{ \bparen{ \frac{p - 1}{2} }^2 }}. \label{eq:p_max}
+    \end{equation}
+    Equations (\ref{eq:total_triangles}) and (\ref{eq:p_max}) now yield our desired bound:
+    \begin{equation}
+        E + F = \binom{p}{3} - P \geq \binom{p}{3} - \bfloor{\frac{p}{2} \bfloor{ \bparen{ \frac{p - 1}{2} }^2 }}. \label{eq:bound}
+    \end{equation}
+
+    Next, for each $p$, we must find a graph $G_p$ attaining this bound. But equality in Equation 
+    (\ref{eq:theorem1}) is equivalent to equality in Equation (\ref{eq:p_max}) which occurs only 
+    when
+    \begin{equation}
+        P = \frac{1}{2} \sum^{p}_{i=1}{d_i(p - 1 - d_i)} 
+            = \bfloor{\frac{p}{2} \bfloor{ \bparen{ \frac{p - 1}{2} }^2 }}. \label{eq:max_desired}
+    \end{equation}
+    % picture of complete bigraph ?
+    If $p=2n$ for some integer $n$, let $G_p$ be the complete bipartite graph $K_{n,n}$. Now $G_p$ 
+    is regular of degree $n$, and we must check that Equation (\ref{eq:max_desired}) is satisfied.
+    \begin{align*}
+        P &= \frac{1}{2} \sum^{p}_{i=1}{d_i(p - 1 - d_i)} & P &= \bfloor{\frac{p}{2} \bfloor{ \bparen{ \frac{p - 1}{2} }^2 }} \notag \\
+          &= \frac{1}{2} \sum^{2n}_{i=1}{n(2n - 1 - n)}   &   &= \bfloor{\frac{2n}{2} \bfloor{ \bparen{ \frac{2n - 1}{2} }^2 }} \notag \\
+          &= \frac{1}{2} \sum^{2n}_{i=1}{n^2 - n}         &   &= \bfloor{ n \bfloor{ \frac{4n^2 - 4n + 1}{4} }} \notag \\
+          &= \frac{1}{2} (2n^3 - 2n^2)                    &   &= \bfloor{ n \bfloor{ n^2 - n + \frac{1}{4} }} \notag \\
+          &= n^3 - n^2                                    &   &= \bfloor{ n(n^2 - n) }  \notag \\
+          &                                               &   &= \bfloor{ n^3 - n^2 } \notag \\
+          &                                               &   &= n^3 - n^2 \notag
+    \end{align*}
+    We can see that Equation (\ref{eq:max_desired}) holds when $p=2n$.
+
+    \pagebreak
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=.4]{../figures/construction_of_g_p.pdf}
+        \caption{The construction of $G_9$.}
+        \label{fig:g}
+    \end{figure}
+
+    If $p=2n+1$, the construction of $G_p$ is a bit more involved. As depicted for $p=9$ in Figure 
+    (\ref{fig:g}), we start with $K_{n,n}$ with its vertices labeled $u_1, u_2,...,u_n$; $v_1, v_2,...,v_n$ 
+    and we subdivide edge $u_iv_i$ for $i \leq \frac{n}{2}$. We now obtain $G_p$ by using these 
+    $\floor{\frac{n}{2}}$ subdivision points to form a single vertex labeled $w$. We observe that 
+    $G_p$ has $2n$ vertices of degree $n$ and one vertex of degree $2\floor{\frac{n}{2}}$. It is 
+    routine to check that Equation (\ref{eq:max_desired}) is satisfied.
+    \begin{align*}
+        P &= \frac{1}{2} \sum^{p}_{i=1}{d_i(p - 1 - d_i)}                                                      & P &= \bfloor{\frac{p}{2} \bfloor{ \bparen{ \frac{p - 1}{2} }^2 }} \notag \\
+          &= \frac{1}{2} \sum^{2n+1}_{i=1}{d_i(2n - d_i)}                                                      &   &= \bfloor{\frac{2n+1}{2} \bfloor{ \bparen{ \frac{2n + 1 - 1}{2} }^2 }} \notag \\
+          &= \frac{1}{2} \bparen{\sum^{2n}_{i=1}{n(2n - n)} + 2\floor{\frac{n}{2}}(2n - 2\floor{\frac{n}{2}})} &   &= \bfloor{\frac{2n+1}{2} \bfloor{ n^2 }} \notag \\
+          &= \frac{1}{2} \bparen{\sum^{2n}_{i=1}{n^2} + 2\floor{\frac{n}{2}}(2n - 2\floor{\frac{n}{2}})}       &   &= \bfloor{\bparen{\frac{2n+1}{2}} n^2} \notag \\
+          &= \frac{1}{2} \bparen{2n^3 + 2\floor{\frac{n}{2}}(2n - 2\floor{\frac{n}{2}})}                       &   &= \bfloor{\frac{2n^3+n^2}{2}}  \notag \\
+          &                                                                                                    &   &= \bfloor{ n^3 + \frac{1}{2}n^2 } \notag
+    \end{align*}
+    At this point, we run into two cases.
+
+    \pagebreak
+
+    \noindent Case 1: $n$ is even. Let $n = 2t$ for some integer $t$.
+
+    \begin{align*}
+        P &= \frac{1}{2} \bparen{2n^3 + 2\floor{\frac{n}{2}}(2n - 2\floor{\frac{n}{2}})}         & P &= \bfloor{ n^3 + \frac{1}{2}n^2 } \notag \\
+          &= \frac{1}{2} \bparen{2(2t)^3 + 2\floor{\frac{2t}{2}}(2(2t) - 2\floor{\frac{2t}{2}})} &   &= \bfloor{ (2t)^3 + \frac{1}{2}(2t)^2 } \notag \\
+          &= \frac{1}{2} \bparen{16t^3 + 2t(4t - 2t)}                                            &   &= \bfloor{ 8t^3 + \frac{1}{2}4t^2 } \notag \\
+          &= \frac{1}{2} \bparen{16t^3 + 4t^2}                                                   &   &= \bfloor{ 8t^3 + 2t^2 } \notag \\
+          &= 8t^3 + 2t^2                                                                         &   &= 8t^3 + 2t^2 \notag
+    \end{align*}
+
+    \noindent Case 2: $n$ is odd. Let $n = 2t + 1$ for some integer $t$.
+
+    % \begin{align*}
+    %     P &= \frac{1}{2} \bparen{2n^3 + 2\floor{\frac{n}{2}}(2n - 2\floor{\frac{n}{2}})}                                 & P &= \bfloor{ n^3 + \frac{1}{2}n^2 } \notag \\
+    %       &= \frac{1}{2} \bparen{2(2t + 1)^3 + 2\bfloor{\frac{2t + 1}{2}}(2(2t + 1) - 2\bfloor{\frac{2t + 1}{2}})}       &   &= \bfloor{ (2t + 1)^3 + \frac{1}{2}(2t + 1)^2 } \notag \\
+    %       &= \frac{1}{2} \bparen{2(8t^3 + 12t^2 + 6t + 1) + 2\floor{t + \frac{1}{2}}(4t + 2 - 2\floor{t + \frac{1}{2}})} &   &= \bfloor{ 8t^3 + 12t^2 + 6t + 1 + \frac{4t^2 + 4t + 1}{2} } \notag \\
+    %       &= \frac{1}{2} \bparen{16t^3 + 24t^2 + 12t + 2 + 2t(4t + 2 - 2t)}                                              &   &= \bfloor{ 8t^3 + 12t^2 + 6t + 1 + 2t^2 + 2t + \frac{1}{2} } \notag \\
+    %       &= \frac{1}{2} \bparen{16t^3 + 28t^2 + 16t + 2}                                                                &   &= \bfloor{ 8t^3 + 14t^2 + 8t + 1 + \frac{1}{2} } \notag \\
+    %       &= 8t^3 + 14t^2 + 8t + 1                                                                                       &   &= 8t^3 + 14t^2 + 8t + 1 \notag
+    % \end{align*}
+
+    \begin{align}
+        P &= \frac{1}{2} \bparen{2n^3 + 2\floor{\frac{n}{2}}(2n - 2\floor{\frac{n}{2}})}                                  \notag \\
+          &= \frac{1}{2} \bparen{2(2t + 1)^3 + 2\bfloor{\frac{2t + 1}{2}}(2(2t + 1) - 2\bfloor{\frac{2t + 1}{2}})}        \notag \\
+          &= \frac{1}{2} \bparen{2(8t^3 + 12t^2 + 6t + 1) + 2\floor{t + \frac{1}{2}}(4t + 2 - 2\floor{t + \frac{1}{2}})}  \notag \\
+          &= \frac{1}{2} \bparen{16t^3 + 24t^2 + 12t + 2 + 2t(4t + 2 - 2t)}                                               \notag \\
+          &= \frac{1}{2} \bparen{16t^3 + 28t^2 + 16t + 2}                                                                 \notag \\
+          &= 8t^3 + 14t^2 + 8t + 1                                                                                        \notag \\
+        \notag \\
+        P &= \bfloor{ n^3 + \frac{1}{2}n^2 }                                                                              \notag \\
+          &= \bfloor{ (2t + 1)^3 + \frac{1}{2}(2t + 1)^2 }                                                                \notag \\
+          &= \bfloor{ 8t^3 + 12t^2 + 6t + 1 + \frac{4t^2 + 4t + 1}{2} }                                                   \notag \\
+          &= \bfloor{ 8t^3 + 12t^2 + 6t + 1 + 2t^2 + 2t + \frac{1}{2} }                                                   \notag \\
+          &= \bfloor{ 8t^3 + 14t^2 + 8t + 1 + \frac{1}{2} }                                                               \notag \\
+          &= 8t^3 + 14t^2 + 8t + 1                                                                                        \notag
+    \end{align}
+    Thus, in both cases, Equation (\ref{eq:max_desired}) holds.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Theorem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lower Bound For Full Triangles} % give a better section name
+
+In a different article of \emph{The American Mathematical Monthly} (REFERENCE),
+L. Suave noted that a when $p$ is even, $E + F$ can be minimized while keeping $F = 0$. However, 
+when $p$ is odd and greater than seven, $F > 0$ for all graphs attaining the minimum for $E + F$.
+We will now refine this result.
+
+\begin{theorem} \
+    In every graph attaining the minimum possible value for E + F,
+    \begin{equation}
+        F \geq \begin{cases}
+                    0 & \text{ if } p = 2n \\
+                    n(n - 1) & \text{ if } p = 4n + 1 \text{ or } 4n + 3
+                \end{cases} \label{eq:theorem2}
+    \end{equation}
+    and this lower bound is sharp for each positive integer $p$.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Proof 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{proof} \
+    We first observe that this bound is attained by the graphs $G_p$ constructed in the first 
+    proof. If $p = 2n$, then $G_p = K_{n, n}$ which obviously has no full triangles. If 
+    $p = 4n +1$ or $p = 4n + 3$, we notice that $G_p - w$ is a bigraph, which has no full triangles.
+    Thus, every full triangle of $G_p$ has the form $u_i, v_j, w$. But recalling the construction
+    of $G_p$, we see that this will be a full triangle if and only if $i \le n$, $j \le n$, and 
+    $i \neq j$. Consequently, $G_p$ has $F = n(n - 1)$ full triangles as desired.
+
+    It remains to be shown that the bound in Equation (\ref{eq:theorem2}) cannot be violated. If 
+    $p$ is even, then this is trivial, since we cannot have a negative number of full triangles. If 
+    $p$ is odd and $n = 0$ or $n = 1$, then this is also trivial, since $n(n - 1) = 0$. Therefore,
+    we will assume $n \ge 2$.
+
+    \noindent Case 1: $p = 4n + 1$
+
+    Let $H$ be a graph minimizing $E + F$ with the smallest value of $F$. We will assume $F \le n(n - 1)$
+    and show that the bound cannot be violated. A vertex in $H$ lies in an average of $\frac{3F}{4n + 1}$ 
+    full triangles, that is, the number of vertices that lie in a full triangle over the total number
+    of vertices. Thus, there exists a vertex $v_0$ that lies in $t$ full triangles where
+    \begin{equation}
+        t \le \frac{3F}{4n + 1} \le \frac{3n(n - 1)}{4n + 1} < n - 1 \label{eq:t_case_1}.
+    \end{equation}
+
+    Since $t$ and $n$ are integers, we can rewrite this to be $t \le n - 2$. Let $V$ be the vertex set 
+    of $H$, let $A$ be the set of vertices adjacent to $v_0$ and let $B$ be the vertices not adjacent to
+    $v_0$.
+
+    Recall the construction of $G_p$ in the first proof, in order to minimize $E + F$, $H$ must 
+    satisfy Equation (\ref{eq:max_desired}) by being a regular graph of degree $2n$. Consequently, 
+    there are $2n$ vertices in both $A$ and $B$. Since $v_0$
+    lies in $t$ full triangles, there are $t$ edges whose endpoints both lie within $A$.
+
+    Now, we know the sum of the degrees of the vertices in $A$ is $4n^2$, we know all $2n$ 
+    vertices in $A$ are adjacent to $v_0$, and we know $2t$ vertices in $A$ are adjacent to 
+    another vertex within $A$. Thus, there must be $4n^2 - 2n - 2t$ edges joining sets $A$ and $B$. 
+    
+    Furthermore, there must be $4n^2 - (4n^2 - 2n - 2t) = 2n + 2t$ vertices in $B$ that are adjacent 
+    to another vertex in $B$ since no vertex in $B$ is adjacent to $v_0$. Hence, there are 
+    $n + t$ edges whose endpoints both lie within $B$.
+
+    Consider an edge $x$ within set $B$. Its two endpoints are incident with $4n - 2$ other edges. 
+    Of those edges, at most $n + t - 1$ of them can lie within $B$. Thus, at least 
+    $4n - 2 - (n + t - 1) = 3n - t - 1$ edges have an endpoint in $A$. Note that no vertex in 
+    $A$ can lie on more than 2 of these edges because that would result in a double edge, and 
+    recall that $A$ has $2n$ vertices. Therefore, we can conclude that at least 
+    $(3n - t - 1) - 2n = n - t - 1$ vertices in $A$ lie on exactly two of these edges. Each of 
+    these vertices forms a full triangle containing the edge $x$.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=.7]{../figures/abb_triangle.pdf}
+        \caption{A visualization of an $ABB$ triangle, other edges are omitted.}
+    \end{figure}
+
+    Thus, each edge within $B$ lies in at least $n - t - 1$ full $ABB$ triangles, and so $H$ should 
+    contain at least $(n + t)(n - t - 1)$ full $ABB$ triangles.
+    Similarly, consider an edge $y$ within set $A$. Its two endpoints are incident with $4n - 2$ other
+    edges. Of those edges, we know that two of them have $v_0$ as an endpoint and at most $t - 1$ of 
+    them lie within $A$. Thus, at least $4n - 2 - (2 + (t - 1)) = 4n - t - 3$ edges have an endpoint 
+    in $B$. Recall that no vertex in $B$ can lie on more than two of these edges and $B$ has $2n$ 
+    vertices. Consequently, at least $(4n - t - 3) - 2n = 2n - t - 3$ vertices in $B$ lie on 
+    exactly two of these edges. Each of these vertices forms a full triangle containing the edge $y$.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=.7]{../figures/aab_triangle.pdf}
+        \caption{A visualization of an $AAB$ triangle, other edges are omitted.}
+    \end{figure}
+
+    Thus, each edge within $A$ lies in at least $2n - t - 3$ full $AAB$ triangles, and so $H$ should 
+    contain at least $t(2n - t - 3)$ full $AAB$ triangles.
+
+    Recall that $v_0$ lies on $t$ full triangles. We can add these to the sum of the two bounds that
+    we found above to conclude that
+    $$ F \ge t + (n + t)(n - t - 1) + t(2n - t - 3) = n^2 - n + 2t(n - t - \frac{3}{2}). $$
+    Finally, since $0 \le t \le n - 2$ and $n \ge 2$, we conclude that $F \ge n^2 - n$.
+
+    \noindent Case 2: $p = 4n + 3$
+
+    As in Case 1, we let $H$ be a graph minimizing $E + F$ with the smallest value of $F$. We 
+    will still assume $F \le n(n - 1)$ and again show that the bound cannot be violated. Recall 
+    the construction of $G_p$ in the first proof, in order to minimize $E + F$, $H$ must satisfy
+    Equation (\ref{eq:max_desired}) by having $4n + 2$ vertices of degree $2n + 1$ and one vertex 
+    $w$ of degree $2n$ or $2n + 2$.
+    
+    Note that a graph with an odd number of vertices cannot be regular 
+    with odd degree (REFERENCE). We will go ahead and assume $w$ has degree $2n$, for if it were 
+    $2n + 2$, we could just remove edges incident with $w$ until we have a graph $H'$ with the desired 
+    degrees and $F' \le F$ full triangles.
+
+    We continue to repeat the steps in Case 1 by selecting a vertex $v_0$ which does not lie in too
+    many full triangles. However, the posibility that $v_0 = w$ is troublesome. Consequently, we select 
+    $v_0$ to be a point of degree $2n + 1$ lying in an average of $\frac{3F}{4n + 3}$ 
+    full triangles, which is the number of vertices that lie in a full triangle over the total number
+    of vertices. Recall that $n \ge 2$, so
+    \begin{equation}
+        t \le \frac{3F}{4n + 3} \le \frac{3n(n - 1)}{4n + 3} < n - 1 \label{eq:t_case_2}.
+    \end{equation}
+
+    Since $t$ and $n$ are integers, we can again rewrite this to be $t \le n - 2$. Furthermore, we 
+    will define sets $A$ and $B$ the same way that we defined them in Case 1, but now they both contain 
+    $2n + 1$ vertices. We will now repeat a similar counting process for the number of full triangles 
+    in $H$. However, we must consider two subcases depending on the location of $w$.
+
+    \noindent Subcase i: $w$ is in $A$
+
+    Then $A$ has $2n$ vertices of degree $2n + 1$ and it has vertex $w$, which has a degree of $2n$. 
+    Additionally, $v_0$ lies in $t$ full triangles, so there are $t$ edges whose endpoints both 
+    lie within $A$. To add, $B$ has $2n + 1$ vertices of degree $2n + 1$.
+
+    Hence, the sum of the degrees of the vertices in $A$ is $4n^2 + 4n$, all $2n + 1$ vertices 
+    in $A$ are adjacent to $v_0$, and $2t$ vertices in $A$ are adjacent to another vertex 
+    within $A$. Thus, there must be $4n^2 + 4n - (2n + 1) - 2t = 4n^2 + 2n - 2t - 1$ edges 
+    joining sets $A$ and $B$.
+
+    Then there must be $4n^2 + 4n + 1 - (4n^2 + 2n - 2t - 1) = 2n + 2t + 2$ vertices in $B$ 
+    that are adjacent to another vertex in $B$ since no vertex in $B$ is adjacent to $v_0$. 
+    Hence, there are $n + t + 1$ edges whose endpoints both lie within $B$.
+
+    Consider an edge $x$ within set $B$. Its two endpoints are incident with $4n + 2 - 2$ other edges. 
+    Of those edges, at most $n + t$ of them can lie within $B$. Thus, at least 
+    $4n - (n + t) = 3n - t$ edges have an endpoint in $A$. Recall that no vertex in $A$ can lie 
+    on more than two of these edges and $A$ has $2n + 1$ vertices. Therefore, we can conclude that 
+    at least $(3n - t) - (2n + 1) = n - t - 1$ vertices in $A$ lie on exactly two of these edges. Each of 
+    these vertices forms a full triangle containing the edge $x$.
+    Thus, each edge within $B$ lies in at least $n - t - 1$ full $ABB$ triangles, and so $H$ should 
+    contain at least $(n + t + 1)(n - t - 1)$ full $ABB$ triangles.
+
+    Similarly, consider an edge $y$ within set $A$. Its two endpoints are incident with at least
+    $((2n + 1) + 2n) - 2 = 4n - 1$ other edges. Of those edges, we know that two of them have $v_0$ as 
+    an endpoint and at most $t - 1$ of them lie within $A$. Thus, at least 
+    $4n - 1 - (2 + (t - 1)) = 4n - t - 2$ edges have an endpoint in $B$. Recall that no vertex in $B$ 
+    can lie on more than two of these edges and $B$ has $2n + 1$ vertices. Consequently, at least 
+    $(4n - t - 2) - (2n + 1) = 2n - t - 3$ vertices in $B$ lie on exactly two of these edges. Each of 
+    these vertices forms a full triangle containing the edge $y$.
+    Thus, each edge within $A$ lies in at least $2n - t - 3$ full $AAB$ triangles, and so $H$ should 
+    contain at least $t(2n - t - 3)$ full $AAB$ triangles. 
+    
+    Recall that $v_0$ lies on $t$ full triangles. We can add these to the sum of the two bounds that
+    we found above to conclude that
+    $$ F \ge t + (n + t + 1)(n - t - 1) + t(2n - t - 3) = n^2 - 1 + 2t(n - t - 2). $$
+    As a result, since $0 \le t \le n - 2$ and $n \ge 2$, we conclude that $F \ge n^2 - n$.
+
+    \noindent Subcase ii: $w$ is in $B$
+
+    Then $B$ has $2n$ vertices of degree $2n + 1$ and it has vertex $w$, which has a degree of $2n$. 
+    It follows that $A$ has $2n + 1$ vertices of degree $2n + 1$. Additionally, $v_0$ lies in $t$ 
+    full triangles, so there are $t$ edges whose endpoints both lie within $A$.
+
+    Hence, the sum of the degrees of the vertices in $A$ is $4n^2 + 4n + 1$, all $2n + 1$ vertices 
+    in $A$ are adjacent to $v_0$, and $2t$ vertices in $A$ are adjacent to another vertex 
+    within $A$. Thus, there must be $4n^2 + 4n + 1 - (2n + 1) - 2t = 4n^2 + 2n - 2t$ edges 
+    joining sets $A$ and $B$.
+
+    Then there must be $4n^2 + 4n - (4n^2 + 2n - 2t) = 2n + 2t$ vertices in $B$ 
+    that are adjacent to another vertex in $B$ since no vertex in $B$ is adjacent to $v_0$. 
+    Hence, there are $n + t$ edges whose endpoints both lie within $B$.
+
+    Consider an edge $x$ within set $B$. Its two endpoints are incident with at least
+    $4n + 1 - 2$ other edges. Of those edges, at most $n + t - 1$ of them can lie within $B$. 
+    Thus, at least $4n - 1 - (n + t - 1) = 3n - t$ edges have an endpoint in $A$. Recall that 
+    no vertex in $A$ can lie on more than two of these edges and $A$ has $2n + 1$ vertices. 
+    Therefore, we can conclude that at least $(3n - t) - (2n + 1) = n - t - 1$ vertices in $A$ 
+    lie on exactly two of these edges. Each of these vertices forms a full triangle containing 
+    the edge $x$.
+    Thus, each edge within $B$ lies in at least $n - t - 1$ full $ABB$ triangles, and so $H$ should 
+    contain at least $(n + t)(n - t - 1)$ full $ABB$ triangles.
+
+    Similarly, consider an edge $y$ within set $A$. Its two endpoints are incident with 
+    $4n + 2 - 2 = 4n$ other edges. Of those edges, we know that two of them have $v_0$ as 
+    an endpoint and at most $t - 1$ of them lie within $A$. Thus, at least 
+    $4n - (2 + (t - 1)) = 4n - t - 1$ edges have an endpoint in $B$. Recall that no vertex in $B$ 
+    can lie on more than two of these edges and $B$ has $2n + 1$ vertices. Consequently, at least 
+    $(4n - t - 1) - (2n + 1) = 2n - t - 2$ vertices in $B$ lie on exactly two of these edges. Each of 
+    these vertices forms a full triangle containing the edge $y$.
+    Thus, each edge within $A$ lies in at least $2n - t - 2$ full $AAB$ triangles, and so $H$ should 
+    contain at least $t(2n - t - 2)$ full $AAB$ triangles. 
+    
+    Recall that $v_0$ lies on $t$ full triangles. We can add these to the sum of the two bounds that
+    we found above to conclude that
+    $$ F \ge t + (n + t)(n - t - 1) + t(2n - t - 2) = n^2 - n + 2t(n - t - 1). $$
+    As a result, since $0 \le t \le n - 2$ and $n \ge 2$, we conclude that $F \ge n^2 - n$.
+    In all cases, the bound $F \ge n^2 - n$ cannot be violated when $p$ is odd.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Conclusion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusion}
+
+In conclusion, we observe that when $p$ is even, many graphs attain the bound in Theorem 2. Conversely,
+not many graphs attain that bound when $p$ is odd. In fact, it is even argued that $G_p$ is the unique 
+graph attaining that bound, but the proof is too long to include here.
+
+NOTE: I didn't have time to add my references but I will be sure to add them in.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{amsplain}
+\begin{thebibliography}{10}
+% potentially keep?
+\bibitem{AZ} M. Aigner and G. Ziegler, ``Proofs From THE BOOK,'' $3^{rd}$ edition, Springer-Verlag, 2004. 203-205.
+\bibitem{AZ} M. Aigner and G. Ziegler, ``Proofs From THE BOOK,'' $3^{rd}$ edition, Springer-Verlag, 2004. 203-205.
+\bibitem{AZ} M. Aigner and G. Ziegler, ``Proofs From THE BOOK,'' $3^{rd}$ edition, Springer-Verlag, 2004. 203-205.
+\bibitem{AZ} M. Aigner and G. Ziegler, ``Proofs From THE BOOK,'' $3^{rd}$ edition, Springer-Verlag, 2004. 203-205.
+\end{thebibliography}
+
+\end{document}
