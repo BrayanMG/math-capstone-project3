@@ -136,15 +136,15 @@ degree. A graph is called K-regular if the degree of each vertex in the graph is
 
 \section{Lower Bound For Empty and Full Triangles}
 
-In an article of \emph{The American Mathematical Monthly} (REFERENCE), A. W. Goodman presents the 
-following problem.
-
+% In an article of \emph{The American Mathematical Monthly} \cite{AG}, A. W. Goodman presents the 
+% following problem.
+Now, consider the following problem.
 A \textbf{party} yields a graph $G$ where people are represented as vertices and two vertices are 
-adjacent if those two people know eachother, i.e. are acquaintances.
+adjacent if those two people know each other, i.e. are acquaintances.
 A \textbf{full triangle} is a subset of three people who all know each other. In other words, three 
 adjacent vertices.
 An \textbf{empty triangle} is a subset of three people who are all strangers. In other words, three
-non-adjacent vertices. Goodman proved the following theorem.
+non-adjacent vertices. Goodman \cite{AG} proved the following theorem.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Theorem 1
@@ -323,8 +323,8 @@ non-adjacent vertices. Goodman proved the following theorem.
 
 \section{Lower Bound For Full Triangles} % give a better section name
 
-In a different article of \emph{The American Mathematical Monthly} (REFERENCE),
-L. Suave noted that a when $p$ is even, $E + F$ can be minimized while keeping $F = 0$. However, 
+In a different article of \emph{The American Mathematical Monthly},
+L. Sauv\'e \cite{LS} noted that when $p$ is even, $E + F$ can be minimized while keeping $F = 0$. However, 
 when $p$ is odd and greater than seven, $F > 0$ for all graphs attaining the minimum for $E + F$.
 We will now refine this result.
 
@@ -390,6 +390,8 @@ We will now refine this result.
     recall that $A$ has $2n$ vertices. Therefore, we can conclude that at least 
     $(3n - t - 1) - 2n = n - t - 1$ vertices in $A$ lie on exactly two of these edges. Each of 
     these vertices forms a full triangle containing the edge $x$.
+    Thus, each edge within $B$ lies in at least $n - t - 1$ full $ABB$ triangles, and so $H$ should 
+    contain at least $(n + t)(n - t - 1)$ full $ABB$ triangles.
 
     \begin{figure}[h!]
         \centering
@@ -397,23 +399,20 @@ We will now refine this result.
         \caption{A visualization of an $ABB$ triangle, other edges are omitted.}
     \end{figure}
 
-    Thus, each edge within $B$ lies in at least $n - t - 1$ full $ABB$ triangles, and so $H$ should 
-    contain at least $(n + t)(n - t - 1)$ full $ABB$ triangles.
     Similarly, consider an edge $y$ within set $A$. Its two endpoints are incident with $4n - 2$ other
     edges. Of those edges, we know that two of them have $v_0$ as an endpoint and at most $t - 1$ of 
     them lie within $A$. Thus, at least $4n - 2 - (2 + (t - 1)) = 4n - t - 3$ edges have an endpoint 
     in $B$. Recall that no vertex in $B$ can lie on more than two of these edges and $B$ has $2n$ 
     vertices. Consequently, at least $(4n - t - 3) - 2n = 2n - t - 3$ vertices in $B$ lie on 
     exactly two of these edges. Each of these vertices forms a full triangle containing the edge $y$.
+    Thus, each edge within $A$ lies in at least $2n - t - 3$ full $AAB$ triangles, and so $H$ should 
+    contain at least $t(2n - t - 3)$ full $AAB$ triangles.
 
     \begin{figure}[h!]
         \centering
         \includegraphics[scale=.7]{../figures/aab_triangle.pdf}
         \caption{A visualization of an $AAB$ triangle, other edges are omitted.}
     \end{figure}
-
-    Thus, each edge within $A$ lies in at least $2n - t - 3$ full $AAB$ triangles, and so $H$ should 
-    contain at least $t(2n - t - 3)$ full $AAB$ triangles.
 
     Recall that $v_0$ lies on $t$ full triangles. We can add these to the sum of the two bounds that
     we found above to conclude that
@@ -429,7 +428,7 @@ We will now refine this result.
     $w$ of degree $2n$ or $2n + 2$.
     
     Note that a graph with an odd number of vertices cannot be regular 
-    with odd degree (REFERENCE). We will go ahead and assume $w$ has degree $2n$, for if it were 
+    with odd degree \cite[Cor. 2.1 (a)]{FH}. We will go ahead and assume $w$ has degree $2n$, for if it were 
     $2n + 2$, we could just remove edges incident with $w$ until we have a graph $H'$ with the desired 
     degrees and $F' \le F$ full triangles.
 
@@ -538,19 +537,18 @@ In conclusion, we observe that when $p$ is even, many graphs attain the bound in
 not many graphs attain that bound when $p$ is odd. In fact, it is even argued that $G_p$ is the unique 
 graph attaining that bound, but the proof is too long to include here.
 
-NOTE: I didn't have time to add my references but I will be sure to add them in.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  References
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \bibliographystyle{amsplain}
 \begin{thebibliography}{10}
-% potentially keep?
-\bibitem{AZ} M. Aigner and G. Ziegler, ``Proofs From THE BOOK,'' $3^{rd}$ edition, Springer-Verlag, 2004. 203-205.
-\bibitem{AZ} M. Aigner and G. Ziegler, ``Proofs From THE BOOK,'' $3^{rd}$ edition, Springer-Verlag, 2004. 203-205.
-\bibitem{AZ} M. Aigner and G. Ziegler, ``Proofs From THE BOOK,'' $3^{rd}$ edition, Springer-Verlag, 2004. 203-205.
-\bibitem{AZ} M. Aigner and G. Ziegler, ``Proofs From THE BOOK,'' $3^{rd}$ edition, Springer-Verlag, 2004. 203-205.
+
+    \bibitem{AG} A. W. Goodman, \emph{On sets of acquaintances and strangers at any party,} The American Mathematical Monthly {\bf 66} (1959), 778-783.
+    \bibitem{FH} F. Harary, ``Graph Theory,'' Addison-Wesley Pub. Co, Reading, Mass., 1969.
+    \bibitem{LS} L. Sauv\'e, \emph{On chromatic graphs,} The American Mathematical Monthly {\bf 68} (1961), 107-111.
+    \bibitem{AS} A. J. Schwenk, \emph{Acquaintance Graph Party Problem,} The American Mathematical Monthly {\bf 79} (1972), 1113-1117.
+
 \end{thebibliography}
 
 \end{document}
