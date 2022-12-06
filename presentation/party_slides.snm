@@ -1,3 +1,8 @@
-\beamer@slide {eq:theorem1}{10}
-\beamer@slide {eq:total_triangles}{11}
-\beamer@slide {eq:theorem2}{32}
+\beamer@slide {eq:theorem1}{11}
+\beamer@slide {eq:total_triangles}{12}
+\beamer@slide {eq:partial_triangles}{24}
+\beamer@slide {eq:partial_max}{33}
+\beamer@slide {eq:p_max}{35}
+\beamer@slide {eq:bound}{35}
+\beamer@slide {eq:max_desired}{37}
+\beamer@slide {eq:theorem2}{57}

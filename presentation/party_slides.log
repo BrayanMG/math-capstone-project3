@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.12)  5 DEC 2022 16:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.12)  6 DEC 2022 16:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,15 +728,15 @@ Dictionary: translator-theorem-dictionary, Language: English
 ) (./party_slides.nav) [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 149.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 156.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 149.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 156.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 149.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 156.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [2
@@ -747,18 +747,24 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 <../figures/bipartite_graph.pdf, id=143, 188.705pt x 254.9525pt>
 File: ../figures/bipartite_graph.pdf Graphic file (type pdf)
 <use ../figures/bipartite_graph.pdf>
-Package pdftex.def Info: ../figures/bipartite_graph.pdf  used on input line 149.
-(pdftex.def)             Requested size: 47.17613pt x 63.73796pt.
+Package pdftex.def Info: ../figures/bipartite_graph.pdf  used on input line 156.
+(pdftex.def)             Requested size: 56.61192pt x 76.48633pt.
  [4
 
- <../figures/bipartite_graph.pdf>] [5
+ <../figures/bipartite_graph.pdf>]
+<../figures/complete_bipartite_graph.pdf, id=179, 188.705pt x 254.9525pt>
+File: ../figures/complete_bipartite_graph.pdf Graphic file (type pdf)
+<use ../figures/complete_bipartite_graph.pdf>
+Package pdftex.def Info: ../figures/complete_bipartite_graph.pdf  used on input line 156.
+(pdftex.def)             Requested size: 56.61192pt x 76.48633pt.
+ [5
 
-]
-<../figures/regular_graph.pdf, id=209, 188.705pt x 181.67876pt>
+ <../figures/complete_bipartite_graph.pdf>]
+<../figures/regular_graph.pdf, id=216, 188.705pt x 181.67876pt>
 File: ../figures/regular_graph.pdf Graphic file (type pdf)
 <use ../figures/regular_graph.pdf>
-Package pdftex.def Info: ../figures/regular_graph.pdf  used on input line 149.
-(pdftex.def)             Requested size: 47.17613pt x 45.41957pt.
+Package pdftex.def Info: ../figures/regular_graph.pdf  used on input line 156.
+(pdftex.def)             Requested size: 66.04773pt x 63.5885pt.
  [6
 
  <../figures/regular_graph.pdf>] [7
@@ -775,121 +781,63 @@ Package pdftex.def Info: ../figures/regular_graph.pdf  used on input line 149.
 
 ] [13
 
-]
-<../figures/partial_case_1.pdf, id=470, 188.705pt x 181.67876pt>
-File: ../figures/partial_case_1.pdf Graphic file (type pdf)
-<use ../figures/partial_case_1.pdf>
-Package pdftex.def Info: ../figures/partial_case_1.pdf  used on input line 366.
-(pdftex.def)             Requested size: 47.17613pt x 45.41957pt.
- [14
+] [14
 
- <../figures/partial_case_1.pdf>]
-<../figures/partial_case_2.pdf, id=513, 188.705pt x 181.67876pt>
-File: ../figures/partial_case_2.pdf Graphic file (type pdf)
-<use ../figures/partial_case_2.pdf>
-Package pdftex.def Info: ../figures/partial_case_2.pdf  used on input line 366.
-(pdftex.def)             Requested size: 47.17613pt x 45.41957pt.
- [15
+] [15
 
- <../figures/partial_case_2.pdf>] [16
+] [16
 
-]
-
-LaTeX Warning: Reference `eq:partial_triangles' on page 17 undefined on input line 366.
-
-[17
+] [17
 
 ] [18
 
 ] [19
 
-] [20
+]
+<../figures/partial_case_1.pdf, id=665, 188.705pt x 181.67876pt>
+File: ../figures/partial_case_1.pdf Graphic file (type pdf)
+<use ../figures/partial_case_1.pdf>
+Package pdftex.def Info: ../figures/partial_case_1.pdf  used on input line 244.
+(pdftex.def)             Requested size: 94.35226pt x 90.83914pt.
+ [20
+
+ <../figures/partial_case_1.pdf>]
+File: ../figures/partial_case_1.pdf Graphic file (type pdf)
+<use ../figures/partial_case_1.pdf>
+Package pdftex.def Info: ../figures/partial_case_1.pdf  used on input line 244.
+(pdftex.def)             Requested size: 94.35226pt x 90.83914pt.
+ [21
 
 ]
+<../figures/partial_case_2.pdf, id=740, 188.705pt x 181.67876pt>
+File: ../figures/partial_case_2.pdf Graphic file (type pdf)
+<use ../figures/partial_case_2.pdf>
+Package pdftex.def Info: ../figures/partial_case_2.pdf  used on input line 257.
+(pdftex.def)             Requested size: 94.35226pt x 90.83914pt.
+ [22
 
-LaTeX Warning: Reference `eq:p_max' on page 21 undefined on input line 366.
+ <../figures/partial_case_2.pdf>]
+File: ../figures/partial_case_2.pdf Graphic file (type pdf)
+<use ../figures/partial_case_2.pdf>
+Package pdftex.def Info: ../figures/partial_case_2.pdf  used on input line 257.
+(pdftex.def)             Requested size: 94.35226pt x 90.83914pt.
+ [23
 
-[21
+] [24
 
-]
+] [25
 
-LaTeX Warning: Reference `eq:p_max' on page 22 undefined on input line 366.
+] [26
 
-[22
+] [27
 
-]
+] [28
 
-LaTeX Warning: Reference `eq:max_desired' on page 23 undefined on input line 366.
+] [29
 
-[23
+] [30
 
-]
-Overfull \vbox (116.51875pt too high) detected at line 366
- []
-
-[24
-
-]
-
-LaTeX Warning: Reference `eq:max_desired' on page 25 undefined on input line 366.
-
-[25
-
-]
-
-LaTeX Warning: Reference `fig:g' on page 26 undefined on input line 366.
-
-
-LaTeX Warning: Reference `eq:max_desired' on page 26 undefined on input line 366.
-
-[26
-
-]
-<../figures/construction_of_g_p.pdf, id=919, 850.17625pt x 475.7775pt>
-File: ../figures/construction_of_g_p.pdf Graphic file (type pdf)
-<use ../figures/construction_of_g_p.pdf>
-Package pdftex.def Info: ../figures/construction_of_g_p.pdf  used on input line 366.
-(pdftex.def)             Requested size: 212.54353pt x 118.94408pt.
- [27
-
- <../figures/construction_of_g_p.pdf>]
-Overfull \hbox (81.50739pt too wide) detected at line 366
-[]
- []
-
-
-Overfull \vbox (112.95871pt too high) detected at line 366
- []
-
-[28
-
-]
-Overfull \hbox (15.81602pt too wide) detected at line 366
-[]
- []
-
-
-Overfull \vbox (49.17036pt too high) detected at line 366
- []
-
-[29
-
-]
-Overfull \hbox (9.01175pt too wide) detected at line 366
-[]
- []
-
-
-Overfull \vbox (304.72343pt too high) detected at line 366
- []
-
-[30
-
-]
-
-LaTeX Warning: Reference `eq:max_desired' on page 31 undefined on input line 366.
-
-[31
+] [31
 
 ] [32
 
@@ -901,59 +849,74 @@ LaTeX Warning: Reference `eq:max_desired' on page 31 undefined on input line 366
 
 ] [36
 
-]
-
-LaTeX Warning: Reference `eq:max_desired' on page 37 undefined on input line 642.
-
-[37
+] [37
 
 ] [38
 
 ] [39
 
-] [40
-
 ]
-<../figures/abb_triangle.pdf, id=1374, 303.1325pt x 188.705pt>
-File: ../figures/abb_triangle.pdf Graphic file (type pdf)
-<use ../figures/abb_triangle.pdf>
-Package pdftex.def Info: ../figures/abb_triangle.pdf  used on input line 642.
-(pdftex.def)             Requested size: 75.78293pt x 47.17613pt.
+<../figures/g_8.pdf, id=1339, 188.705pt x 254.9525pt>
+File: ../figures/g_8.pdf Graphic file (type pdf)
+<use ../figures/g_8.pdf>
+Package pdftex.def Info: ../figures/g_8.pdf  used on input line 358.
+(pdftex.def)             Requested size: 56.61192pt x 76.48633pt.
+ [40
+
+ <../figures/g_8.pdf>]
+File: ../figures/g_8.pdf Graphic file (type pdf)
+<use ../figures/g_8.pdf>
+Package pdftex.def Info: ../figures/g_8.pdf  used on input line 358.
+(pdftex.def)             Requested size: 56.61192pt x 76.48633pt.
  [41
 
- <../figures/abb_triangle.pdf>] [42
+] [42
+
+] [43
+
+] [44
+
+] [45
 
 ]
-<../figures/aab_triangle.pdf, id=1449, 303.1325pt x 188.705pt>
-File: ../figures/aab_triangle.pdf Graphic file (type pdf)
-<use ../figures/aab_triangle.pdf>
-Package pdftex.def Info: ../figures/aab_triangle.pdf  used on input line 642.
-(pdftex.def)             Requested size: 75.78293pt x 47.17613pt.
- [43
+<../figures/construction_step_1.pdf, id=1539, 850.17625pt x 475.7775pt>
+File: ../figures/construction_step_1.pdf Graphic file (type pdf)
+<use ../figures/construction_step_1.pdf>
+Package pdftex.def Info: ../figures/construction_step_1.pdf  used on input line 393.
+(pdftex.def)             Requested size: 255.05484pt x 142.73434pt.
+ [46
 
- <../figures/aab_triangle.pdf>] [44
+ <../figures/construction_step_1.pdf>]
+<../figures/construction_step_2.pdf, id=1582, 850.17625pt x 475.7775pt>
+File: ../figures/construction_step_2.pdf Graphic file (type pdf)
+<use ../figures/construction_step_2.pdf>
+Package pdftex.def Info: ../figures/construction_step_2.pdf  used on input line 404.
+(pdftex.def)             Requested size: 255.05484pt x 142.73434pt.
+ [47
 
-]
+ <../figures/construction_step_2.pdf>]
+<../figures/construction_of_g_p.pdf, id=1626, 850.17625pt x 475.7775pt>
+File: ../figures/construction_of_g_p.pdf Graphic file (type pdf)
+<use ../figures/construction_of_g_p.pdf>
+Package pdftex.def Info: ../figures/construction_of_g_p.pdf  used on input line 416.
+(pdftex.def)             Requested size: 255.05484pt x 142.73434pt.
+ [48
 
-LaTeX Warning: Reference `eq:max_desired' on page 45 undefined on input line 642.
-
-[45
-
-]
-
-LaTeX Warning: Citation `FH' on page 46 undefined on input line 642.
-
-[46
-
-] [47
-
-] [48
-
-] [49
+ <../figures/construction_of_g_p.pdf>]
+File: ../figures/construction_of_g_p.pdf Graphic file (type pdf)
+<use ../figures/construction_of_g_p.pdf>
+Package pdftex.def Info: ../figures/construction_of_g_p.pdf  used on input line 428.
+(pdftex.def)             Requested size: 255.05484pt x 142.73434pt.
+ [49
 
 ] [50
 
-] [51
+]
+Overfull \hbox (2.86969pt too wide) detected at line 450
+[]
+ []
+
+[51
 
 ] [52
 
@@ -973,18 +936,6 @@ LaTeX Warning: Citation `FH' on page 46 undefined on input line 642.
 
 ] [60
 
-] [61
-
-] [62
-
-] [63
-
-] [64
-
-] [65
-
-] [66
-
 ]
 \tf@nav=\write6
 \openout6 = `party_slides.nav'.
@@ -996,37 +947,22 @@ LaTeX Warning: Citation `FH' on page 46 undefined on input line 642.
 \openout8 = `party_slides.snm'.
 
  (./party_slides.aux)
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `party_slides.out' has not changed.
-(rerunfilecheck)             Checksum: CEC9810447CA071A541B796B149B7C47;567.
+(rerunfilecheck)             Checksum: F3CEB3B8B542E30587F349D0A99701C5;476.
  ) 
 Here is how much of TeX's memory you used:
- 22668 strings out of 478268
- 445624 string characters out of 5846347
- 782414 words of memory out of 5000000
- 40248 multiletter control sequences out of 15000+600000
- 479006 words of font info for 62 fonts, out of 8000000 for 9000
+ 22758 strings out of 478268
+ 447517 string characters out of 5846347
+ 709431 words of memory out of 5000000
+ 40347 multiletter control sequences out of 15000+600000
+ 481805 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,16n,122p,510b,581s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{fig:g} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{eq:max_desired} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{eq:p_max} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{eq:partial_triangles} has been referenced but does not exist, replaced by a fixed one
-
-</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on party_slides.pdf (66 pages, 354288 bytes).
+</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on party_slides.pdf (60 pages, 365364 bytes).
 PDF statistics:
- 2298 PDF objects out of 2487 (max. 8388607)
- 2162 compressed objects within 22 object streams
- 145 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2140 PDF objects out of 2487 (max. 8388607)
+ 2003 compressed objects within 21 object streams
+ 134 named destinations out of 1000 (max. 500000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,5 +1,5 @@
-\beamer@sectionintoc {1}{Definitions and Examples}{2}{0}{1}
+\beamer@sectionintoc {1}{Definitions}{2}{0}{1}
 \beamer@sectionintoc {2}{Introduction}{7}{0}{2}
-\beamer@sectionintoc {3}{Theorem One}{10}{0}{3}
-\beamer@sectionintoc {4}{Theorem Two}{32}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{65}{0}{5}
+\beamer@sectionintoc {3}{Theorem 1}{11}{0}{3}
+\beamer@sectionintoc {4}{Theorem 2}{57}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{58}{0}{5}
